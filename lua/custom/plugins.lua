@@ -85,24 +85,17 @@ local plugins = {
   {
     "rmagatti/auto-session",
     lazy = false,
+    dependencies = "nvim-tree/nvim-tree.lua",
     config = function()
+      local function restore_nvim_tree()
+        require("nvim-tree.api").tree.open({ focus = false })
+      end
       require("auto-session").setup {
         log_level = "error",
         auto_session_suppress_dirs = { "~/", "~/Projects", "~/Downloads", "/"},
+        post_restore_cmds = restore_nvim_tree()
       }
-      -- Workaround for restoring nvim-tree properly
-      vim.api.nvim_create_autocmd({ 'BufEnter' }, {
-        pattern = 'NvimTree*',
-        callback = function()
-          local api = require('nvim-tree.api')
-          local view = require('nvim-tree.view')
-
-          if not view.is_visible() then
-            api.tree.open()
-          end
-        end,
-      })
-    end
+    end,
   }
 }
 return plugins

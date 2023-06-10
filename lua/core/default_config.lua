@@ -43,7 +43,14 @@ M.ui = {
     show_numbers = false,
     enabled = true,
     lazyload = true,
-    overriden_modules = nil,
+    -- Disable buttons on the right
+    overriden_modules = function ()
+      return {
+        buttons = function ()
+          return ""
+        end
+      }
+    end
   },
 
   -- nvdash (dashboard)
