@@ -35,4 +35,13 @@ M.hop = {
     }
   }
 }
+
+M.telescope = {
+  plugin = true,
+  n = {
+    ["<leader>fw"] = {
+      ":Telescope live_grep_args <CR>"
+    }
+  }
+}
 return M

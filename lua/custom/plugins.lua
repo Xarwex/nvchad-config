@@ -96,6 +96,21 @@ local plugins = {
         post_restore_cmds = restore_nvim_tree()
       }
     end,
-  }
+  },
+  {
+    "nvim-telescope/telescope-live-grep-args.nvim",
+    dependencies = "nvim-telescope/telescope.nvim",
+    config = function()
+     require("telescope-live-grep-args.actions")
+    end
+  },
+  {
+    "nvim-telescope/telescope.nvim",
+    opts = {
+      extensions_list = {
+        "live_grep_args"
+      }
+    },
+  },
 }
 return plugins
