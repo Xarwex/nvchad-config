@@ -1,3 +1,7 @@
+local opt = vim.opt
+
+opt.relativenumber = true
+
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'NvimTree' },
   callback = function(args)

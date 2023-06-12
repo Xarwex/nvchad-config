@@ -111,11 +111,9 @@ local plugins = {
   },
   {
     "nvim-telescope/telescope.nvim",
-    opts = {
-      extensions_list = {
-        "live_grep_args"
-      }
-    },
+    opts = function (_, opts)
+      return table.insert(opts.extensions_list, "live_grep_args")
+    end
   },
   {
     "jose-elias-alvarez/null-ls.nvim",
@@ -154,6 +152,14 @@ local plugins = {
         dapui.close()
       end
     end
+  },
+  -- {
+  --   "AndrewRadev/quickpeek.vim",
+  --   lazy = false,
+  -- },
+  {
+    "cstrahan/vim-capnp",
+    ft = "capnp",
   },
 }
 return plugins
