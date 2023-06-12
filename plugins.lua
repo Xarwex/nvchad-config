@@ -1,4 +1,6 @@
 local cmp = require "cmp"
+local rust = require "custom.plugins.rust"
+local python = require "custom.plugins.python"
 
 local plugins = {
   {
@@ -24,34 +26,10 @@ local plugins = {
     end,
   },
   {
-    "simrat39/rust-tools.nvim",
-    ft = "rust",
-    dependencies = "neovim/nvim-lspconfig",
-    opts = function ()
-      return require "custom.configs.rust-tools"
-    end,
-    config = function(_, opts)
-      require('rust-tools').setup(opts)
-    end
-  },
-  {
     "mfussenegger/nvim-dap",
     init = function()
       require("core.utils").load_mappings("dap")
     end
-  },
-  {
-    'saecki/crates.nvim',
-    ft = {"rust", "toml"},
-    config = function(_, opts)
-      local crates  = require('crates')
-      crates.setup(opts)
-      require('cmp').setup.buffer({
-        sources = { { name = "crates" }}
-      })
-      crates.show()
-      require("core.utils").load_mappings("crates")
-    end,
   },
   {
     "rust-lang/rust.vim",
@@ -155,19 +133,9 @@ local plugins = {
       end
     end
   },
-  -- {
-  --   "AndrewRadev/quickpeek.vim",
-  --   lazy = false,
-  -- },
   {
     "cstrahan/vim-capnp",
     ft = "capnp",
   },
-  -- {
-  --   "linux-cultist/venv-selector.nvim",
-  --   dependencies = { "neovim/nvim-lspconfig", "nvim-telescope/telescope.nvim" },
-  --   config = true,
-  --   event = "VeryLazy", -- Optional: needed only if you want to type `:VenvSelect` without a keymapping
-  -- },
 }
-return plugins
+return vim.tbl_deep_extend("keep", plugins, rust, python)
