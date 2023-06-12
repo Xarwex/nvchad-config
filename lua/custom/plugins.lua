@@ -101,7 +101,7 @@ local plugins = {
     "nvim-telescope/telescope-live-grep-args.nvim",
     dependencies = "nvim-telescope/telescope.nvim",
     config = function()
-     require("telescope-live-grep-args.actions")
+      require("telescope-live-grep-args.actions")
     end
   },
   {
