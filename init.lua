@@ -1,21 +1,28 @@
-require "core"
+local opt = vim.opt
 
-local custom_init_path = vim.api.nvim_get_runtime_file("lua/custom/init.lua", false)[1]
+opt.relativenumber = true
 
-if custom_init_path then
-  dofile(custom_init_path)
-end
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = { 'NvimTree' },
+  callback = function(args)
+    vim.api.nvim_create_autocmd('VimLeavePre', {
+      callback = function()
+        vim.api.nvim_buf_delete(args.buf, { force = true })
+        return true
+      end
+    })
+  end,
+})
 
-require("core.utils").load_mappings()
+vim.api.nvim_create_autocmd({ 'BufEnter' }, {
+  pattern = 'NvimTree*',
+  callback = function()
+    local view = require('nvim-tree.view')
+    local is_visible = view.is_visible()
 
-local lazypath = vim.fn.stdpath "data" .. "/lazy/lazy.nvim"
-
--- bootstrap lazy.nvim!
-if not vim.loop.fs_stat(lazypath) then
-  require("core.bootstrap").gen_chadrc_template()
-  require("core.bootstrap").lazy(lazypath)
-end
-
-dofile(vim.g.base46_cache .. "defaults")
-vim.opt.rtp:prepend(lazypath)
-require "plugins"
+    local api = require('nvim-tree.api')
+    if not is_visible then
+      api.tree.open()
+    end
+  end,
+})
