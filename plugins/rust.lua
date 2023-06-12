@@ -23,5 +23,19 @@ return {
       require("core.utils").load_mappings("crates")
     end,
   },
-
+  {
+    "rust-lang/rust.vim",
+    ft = "rust",
+    init = function ()
+      vim.g.rustfmt_autosave = 1
+    end
+  },
+  {
+    "tree-sitter/tree-sitter-rust",
+    ft = "rust"
+  },
+  {
+    "lunacookies/vim-rust-syntax-ext",
+    ft = "rust"
+  }
 }

@@ -1,6 +1,10 @@
-local opt = vim.opt
+vim.opt.relativenumber = true
 
-opt.relativenumber = true
+if vim.loop.os_uname().sysname == "Windows_NT" then
+  vim.opt.shell = 'powershell'
+  vim.opt.shellcmdflag = '-nologo -noprofile -ExecutionPolicy RemoteSigned -command'
+  vim.opt.shellxquote = ''
+end
 
 vim.api.nvim_create_autocmd('FileType', {
   pattern = { 'NvimTree' },
