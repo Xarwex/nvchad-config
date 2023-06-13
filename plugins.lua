@@ -1,7 +1,4 @@
 local cmp = require "cmp"
-local rust = require "custom.plugins.rust"
-local python = require "custom.plugins.python"
-local dap = require "custom.plugins.dap"
 
 local plugins = {
   {
@@ -11,10 +8,11 @@ local plugins = {
         "rust-analyzer",
         "codelldb",
         "rustfmt",
-        "black",
-        "debugpy",
+        -- "black",
+        -- "debugpy",
         "mypy",
         "ruff",
+        -- "ruff-lsp",
         "pyright",
       },
     },
@@ -78,4 +76,4 @@ local plugins = {
     ft = "capnp",
   },
 }
-return vim.tbl_extend("keep", plugins, rust, python, dap)
+return plugins
