@@ -1,4 +1,4 @@
-local cmp = require "cmp"
+-- local cmp = require "cmp"
 
 local plugins = {
   {
@@ -8,12 +8,14 @@ local plugins = {
         "rust-analyzer",
         "codelldb",
         "rustfmt",
+        "stylua",
+        "python-lsp-server",
         -- "black",
         -- "debugpy",
-        "mypy",
-        "ruff",
+        -- "mypy",
+        -- "ruff",
         -- "ruff-lsp",
-        "pyright",
+        -- "pyright",
       },
     },
   },
@@ -26,17 +28,25 @@ local plugins = {
   },
   {
     "hrsh7th/nvim-cmp",
-    opts = function()
-      local M = require "cmp"
-      M.completion.completeopt = "menu,menuone,noselect"
-      M.mapping["<CR>"] = cmp.mapping.confirm {
-        behavior = cmp.ConfirmBehavior.Insert,
-        select = false,
-      }
-      table.insert(M.sources, {name = "crates"})
-      return M
+    dependencies = { "hrsh7th/cmp-emoji" },
+    opts = function(_, opts)
+      local cmp = require("cmp")
+      opts.sources = cmp.config.sources(vim.list_extend(opts.sources, { { name = "emoji" } }))
     end,
   },
+  -- {
+  --   "hrsh7th/nvim-cmp",
+  --   opts = function()
+  --     local M = require "plugins.configs.cmp"
+  --     M.completion.completeopt = "menu,menuone,noselect"
+  --     M.mapping["<CR>"] = cmp.mapping.confirm {
+  --       behavior = cmp.ConfirmBehavior.Insert,
+  --       select = false,
+  --     }
+  --     table.insert(M.sources, {name = "crates"})
+  --     return M
+  --   end,
+  -- },
   {
     "phaazon/hop.nvim",
     branch = 'v2',

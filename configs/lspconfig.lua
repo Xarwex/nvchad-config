@@ -1,16 +1,14 @@
 local on_attach = require("plugins.configs.lspconfig").on_attach
 local capabilities = require("plugins.configs.lspconfig").capabilities
 
-local lspconfig = require("plugins.configs.lspconfig")
+local lspconfig = require("lspconfig")
 local util = require "lspconfig/util"
 
-require('lspconfig').ruff_lsp.setup {
-  on_attach = on_attach,
-  capabilities = capabilities,
-  -- init_options = {
-  --   settings = {
-  --     -- Any extra CLI arguments for `ruff` go here.
-  --     args = {},
-  --   }
-  -- }
-}
+local servers = {"pylsp"--[[, "pylyzer", "pyright"]]}
+
+for _, lsp in ipairs(servers) do
+  lspconfig[lsp].setup {
+    on_attach = on_attach,
+    capabilities = capabilities,
+  }
+end

@@ -30,12 +30,13 @@ return {
       vim.g.rustfmt_autosave = 1
     end
   },
-  {
-    "tree-sitter/tree-sitter-rust",
-    ft = "rust"
-  },
-  {
-    "lunacookies/vim-rust-syntax-ext",
-    ft = "rust"
-  }
+  -- {
+  --   "tree-sitter/tree-sitter-rust",
+  --   dependencies = "nvim-treesitter/nvim-treesitter",
+  --   ft = "rust"
+  -- },
+  -- {
+  --   "lunacookies/vim-rust-syntax-ext",
+  --   ft = "rust"
+  -- }
 }

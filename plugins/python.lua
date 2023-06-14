@@ -1,11 +1,16 @@
 return {
   {
     "jose-elias-alvarez/null-ls.nvim",
-    ft = {"python"},
+    ft = "python",
     opts = function()
       return require "custom.configs.null-ls"
     end,
   },
+  -- {
+  --   "tree-sitter/tree-sitter-python",
+  --   dependencies = "nvim-treesitter/nvim-treesitter",
+  --   ft = "python"
+  -- }
   -- {
   --   "mfussenegger/nvim-dap-python",
   --   ft = "python",
