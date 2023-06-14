@@ -85,5 +85,10 @@ local plugins = {
     "cstrahan/vim-capnp",
     ft = "capnp",
   },
+  {
+    "nvim-treesitter/nvim-treesitter-context",
+    dependencies = "nvim-treesitter/nvim-treesitter",
+    lazy = false,
+  }
 }
 return plugins

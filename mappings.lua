@@ -52,7 +52,16 @@ M.telescope = {
   n = {
     ["<leader>fw"] = {
       ":Telescope live_grep_args <CR>"
-    }
+    },
+    ["<leader>gr"] = {
+      ":Telescope lsp_references <CR>"
+    },
+    ["<leader>gd"] = {
+      ":Telescope lsp_definitions <CR>"
+    },
+    ["<leader>re"] = {
+      ":Telescope resume <CR>"
+    },
   }
 }
 return M
