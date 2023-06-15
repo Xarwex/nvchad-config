@@ -12,7 +12,7 @@ return {
   },
   {
     'saecki/crates.nvim',
-    ft = {"rust", "toml"},
+    ft = "toml",
     config = function(_, opts)
       local crates  = require('crates')
       crates.setup(opts)
@@ -30,13 +30,4 @@ return {
       vim.g.rustfmt_autosave = 1
     end
   },
-  -- {
-  --   "tree-sitter/tree-sitter-rust",
-  --   dependencies = "nvim-treesitter/nvim-treesitter",
-  --   ft = "rust"
-  -- },
-  -- {
-  --   "lunacookies/vim-rust-syntax-ext",
-  --   ft = "rust"
-  -- }
 }

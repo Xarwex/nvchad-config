@@ -3,6 +3,12 @@ local capabilities = require("plugins.configs.lspconfig").capabilities
 
 
 local options = {
+  tools = {
+    runnables = {
+      use_telescope = true,
+    },
+  },
+
   server = {
     on_attach = on_attach,
     capabilities = capabilities,

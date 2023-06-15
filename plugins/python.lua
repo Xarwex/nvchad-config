@@ -7,11 +7,6 @@ return {
     end,
   },
   -- {
-  --   "tree-sitter/tree-sitter-python",
-  --   dependencies = "nvim-treesitter/nvim-treesitter",
-  --   ft = "python"
-  -- }
-  -- {
   --   "mfussenegger/nvim-dap-python",
   --   ft = "python",
   --   dependencies = {
