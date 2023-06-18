@@ -12,6 +12,13 @@ local options = {
   server = {
     on_attach = on_attach,
     capabilities = capabilities,
+    settings = {
+      ['rust_analyzer']= {
+          procMacro = {
+          enable = false,
+        }
+      }
+    }
   }
 }
 
