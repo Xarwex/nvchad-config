@@ -81,6 +81,17 @@ local plugins = {
     "nvim-treesitter/nvim-treesitter-context",
     dependencies = "nvim-treesitter/nvim-treesitter",
     lazy = false,
-  }
+  },
+  -- {
+  --   "romainl/vim-qf",
+  --   lazy = false,
+  -- }
+  -- {
+  --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+  --   lazy = false,
+  --   config = function()
+  --     require("lsp_lines").setup()
+  --   end,
+  -- }
 }
 return plugins

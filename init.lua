@@ -1,5 +1,13 @@
 vim.opt.relativenumber = true
 
+-- vim.diagnostic.config({ virtual_text = false })
+--
+-- vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+--     vim.lsp.diagnostic.on_publish_diagnostics, {
+--         virtual_text = false
+--     }
+-- )
+
 if vim.loop.os_uname().sysname == "Windows_NT" then
   vim.opt.shell = 'pwsh'
   vim.opt.shellcmdflag = '-nologo -noprofile -ExecutionPolicy RemoteSigned -command'

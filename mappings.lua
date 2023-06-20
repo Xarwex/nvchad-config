@@ -62,6 +62,9 @@ M.telescope = {
     ["<leader>re"] = {
       ":Telescope resume <CR>"
     },
+    ["<leader>di"] = {
+      ":Telescope diagnostics <CR>"
+    },
   }
 }
 return M
