@@ -11,7 +11,9 @@ M.dap = {
         sidebar.open();
       end,
       "Open debugging sidebar"
-    }
+    },
+    ["<F5>"] = { "<cmd> lua require'dap.ext.vscode'.load_launchjs() <CR> <cmd> DapContinue <CR>" },
+    ["<S-F5>"] = { ":DapTerminate <CR>"}
   }
 }
 
