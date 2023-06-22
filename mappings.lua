@@ -12,7 +12,7 @@ M.dap = {
       end,
       "Open debugging sidebar"
     },
-    ["<F5>"] = { "<cmd> lua require'dap.ext.vscode'.load_launchjs() <CR> <cmd> DapContinue <CR>" },
+    ["<F5>"] = { "<cmd> DapContinue <CR>" },
     ["<S-F5>"] = { ":DapTerminate <CR>"}
   }
 }

@@ -4,9 +4,6 @@ return {
     init = function()
       require("core.utils").load_mappings("dap")
     end,
-    config = function()
-      require('dap.ext.vscode').load_launchjs(nil, {rt_lldb={'rust'}})
-    end
   },
   {
     "theHamsta/nvim-dap-virtual-text",
