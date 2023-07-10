@@ -69,4 +69,16 @@ M.telescope = {
     },
   }
 }
+
+M.lsp_lines = {
+  plugin = true,
+  n = {
+    ["<leader>ll"] = {
+      function ()
+        require('lsp_lines').toggle()
+      end,
+      "Toggle LSP lines"
+    },
+  }
+}
 return M

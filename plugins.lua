@@ -86,12 +86,13 @@ local plugins = {
   --   "romainl/vim-qf",
   --   lazy = false,
   -- }
-  -- {
-  --   "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
-  --   lazy = false,
-  --   config = function()
-  --     require("lsp_lines").setup()
-  --   end,
-  -- }
+  {
+    "https://git.sr.ht/~whynothugo/lsp_lines.nvim",
+    lazy = false,
+    config = function()
+      require("lsp_lines").setup()
+      require("core.utils").load_mappings("lsp_lines")
+    end,
+  }
 }
 return plugins
