@@ -3,7 +3,7 @@ local M = {}
 M.dap = {
   plugin = true,
   n = {
-    ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>" },
+    ["<leader>db"] = { "<cmd> DapToggleBreakpoint <CR>", "ToggleBreakpoint" },
     ["<leader>dus"] = {
       function ()
         local widgets = require('dap.ui.widgets');
@@ -12,8 +12,9 @@ M.dap = {
       end,
       "Open debugging sidebar"
     },
-    ["<F5>"] = { "<cmd> DapContinue <CR>" },
-    ["<S-F5>"] = { ":DapTerminate <CR>"}
+    ["<F5>"] = { "<cmd> DapContinue <CR>", "Continue" },
+    ["<S-F5>"] = { ":DapTerminate <CR>", "Terminate" },
+    ["<F10>"] = { "<cmd> DapStepOver <CR>", "Step over"},
   }
 }
 
@@ -35,7 +36,7 @@ M.crates = {
       function ()
         require('crates').upgrade_all_crates()
       end,
-      "update crates"
+      "Update crates"
     }
   }
 }
@@ -44,7 +45,8 @@ M.hop = {
   plugin = true,
   n = {
     ["<leader><leader>w"] = {
-      ":HopWord <CR>"
+      ":HopWord <CR>",
+      "HopWord"
     }
   }
 }
@@ -56,16 +58,20 @@ M.telescope = {
       ":Telescope live_grep_args <CR>"
     },
     ["<leader>gr"] = {
-      ":Telescope lsp_references <CR>"
+      ":Telescope lsp_references <CR>",
+      "LSP references"
     },
     ["<leader>gd"] = {
-      ":Telescope lsp_definitions <CR>"
+      ":Telescope lsp_definitions <CR>",
+      "LSP definitions"
     },
     ["<leader>re"] = {
-      ":Telescope resume <CR>"
+      ":Telescope resume <CR>",
+      "Resume last search"
     },
     ["<leader>di"] = {
-      ":Telescope diagnostics <CR>"
+      ":Telescope diagnostics <CR>",
+      "Diagnostics"
     },
   }
 }
