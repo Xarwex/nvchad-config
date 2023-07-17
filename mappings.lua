@@ -73,6 +73,10 @@ M.telescope = {
       ":Telescope diagnostics <CR>",
       "Diagnostics"
     },
+    ["<leader>pi"] = {
+      ":Telescope pickers <CR>",
+      "Pickers"
+    }
   }
 }
 
