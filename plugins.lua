@@ -3,8 +3,7 @@ local cmp = require "cmp"
 local plugins = {
    {
     "NvChad/nvim-colorizer.lua",
-    config = function(_, opts)
-      vim.print(opts)
+    config = function(_, _)
       require("colorizer").setup({ user_default_options = { names = false } })
 
       -- execute colorizer as soon as possible
