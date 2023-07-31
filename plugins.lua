@@ -107,6 +107,10 @@ local plugins = {
       require("lsp_lines").setup()
       require("core.utils").load_mappings("lsp_lines")
     end,
+  },
+  {
+    "tpope/vim-unimpaired",
+    lazy = false,
   }
 }
 return plugins

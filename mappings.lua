@@ -1,5 +1,12 @@
 local M = {}
 
+-- M.general = {
+--   n = {
+--     ["]q"] = { ":cn <CR>", "Next item in qf list" },
+--     ["[q"] = { ":cp <CR>", "Previous item in qf list"}
+--   }
+-- }
+
 M.dap = {
   plugin = true,
   n = {
