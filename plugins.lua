@@ -36,7 +36,7 @@ local plugins = {
       require "plugins.configs.lspconfig"
       require "custom.configs.lspconfig"
     end,
-  }, 
+  },
   {
     "hrsh7th/nvim-cmp",
     opts = function()
@@ -111,6 +111,19 @@ local plugins = {
   {
     "tpope/vim-unimpaired",
     lazy = false,
+  },
+  {
+    "folke/zen-mode.nvim",
+    lazy = false,
+    opts = {
+      window = {
+        width = .5
+      }
+    },
+    config = function (_, opts)
+      require("zen-mode").setup(opts)
+      require("core.utils").load_mappings("zen_mode")
+    end
   }
 }
 return plugins

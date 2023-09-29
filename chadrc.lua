@@ -3,26 +3,17 @@
  M.ui = {
   theme = 'catppuccin',
   tabufline = {
-    overriden_modules = function()
-      return {
-        buttons = function ()
-          return ""
-        end
-      }
+    overriden_modules = function(modules)
+      table.remove(modules, 4)
     end
   },
   statusline = {
-    overriden_modules = function()
-      local st_modules = require "nvchad_ui.statusline.default"
-      -- this is just default table of statusline modules
-      return {
-        fileInfo = function()
-          local prefix = (vim.fn.expand "%:e" == "" and "") or ("%#St_file_info#" .. vim.fn.expand "%:h" .. "%#St_file_sep#")
-          return prefix .. st_modules.fileInfo()
-          -- or just return "" to hide this module
-        end,
-      }
-    end,
+    overriden_modules = function(modules)
+        modules[2] = (function ()
+            local prefix = (vim.fn.expand "%:e" == "" and "") or ("%#St_file_info#" .. vim.fn.expand "%:h" .. "%#St_file_sep#")
+            return prefix .. modules[2]
+          end)()
+      end,
   },
 }
  M.plugins = 'custom.plugins'

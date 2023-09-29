@@ -15,6 +15,7 @@ M.dap = {
     ["<F5>"] = { "<cmd> DapContinue <CR>", "Continue" },
     ["<S-F5>"] = { ":DapTerminate <CR>", "Terminate" },
     ["<F10>"] = { "<cmd> DapStepOver <CR>", "Step over"},
+    ["<leader>lrc"] = {":lua require('dap.ext.vscode').load_launchjs(nil, {rt_lldb={'rust'}}) <CR>", "Load rust debug config"}
   }
 }
 
@@ -89,6 +90,16 @@ M.lsp_lines = {
       end,
       "Toggle LSP lines"
     },
+  }
+}
+
+M.zen_mode = {
+  plugin = true,
+  n = {
+    ["<leader>kz"] = {
+      ":ZenMode <CR>",
+      "Toggle Zen Mode"
+    }
   }
 }
 return M
