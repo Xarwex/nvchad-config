@@ -60,6 +60,10 @@ local plugins = {
     end
   },
   {
+    "nvim-tree/nvim-tree.lua",
+    lazy = false,
+  },
+  {
     "rmagatti/auto-session",
     lazy = false,
     dependencies = "nvim-tree/nvim-tree.lua",
